@@ -22,14 +22,25 @@ export const LinkedCard = styled(Link)`
   border: 1px solid navy;
   border-radius: 3px;
   color: inherit;
+  line-height: 1.3;
   margin: 0.75rem;
   padding: 1rem 2rem 2rem;
   text-decoration: none;
   width: 33%;
+
+  @media (max-width: 768px) {
+    margin: 0 0 1.5rem;
+    padding: 1rem 0.5rem 2rem;
+    width: 100%;
+  }
 `;
 
 export const LinkedCardContainer = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
