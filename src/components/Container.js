@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-import { Dashboard, Details, Home } from '../pages';
+import { Dashboard, Details, Home, Search } from '../pages';
 
 
 const Container = () => (
@@ -13,7 +13,7 @@ const Container = () => (
     </Route>
 
     <Route path="/search">
-      <Dashboard />
+      <Search />
     </Route>
 
     <Route path="/:id">
