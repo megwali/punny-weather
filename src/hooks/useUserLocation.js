@@ -9,23 +9,18 @@ const options = {
 };
 
 const useUserLocation = () => {
-  const [error, setError] = useState(true);
-  const [loading, setLoading] = useState(true);
   const [position, setPosition] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({ error: false, forecast: null, loading: true });
   const [latitude, longitude] = position;
 
   useEffect(() => {
     const handleError = () => {
-      setLoading(false);
-      setError(true);
+      setData(data => ({ ...data, error: true, loading: false }));
     };
 
     const handleSuccess = position => {
       const { latitude, longitude } = position.coords || {};
       setPosition([latitude, longitude]);
-      setLoading(false);
-      setError(false);
     };
 
     const getForecastData = () => {
@@ -33,17 +28,18 @@ const useUserLocation = () => {
 
       if (latitude && longitude) {
         fetch(`${url}?lat=${latitude}&lon=${longitude}&units=metric&APPID=${APPID}`)
-        .then(res => res.json())
-        .then(result => {
-          setData(result);
-        });
+        .then(response => response.json())
+        .then(forecast => {
+          setData({ error: false, forecast, loading: false });
+        })
+        .catch(handleError);
       }
     };
 
     getForecastData();
   }, [latitude, longitude]);
 
-  return { data, error, loading };
+  return data;
 };
 
 export default useUserLocation;

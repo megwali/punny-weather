@@ -1,25 +1,23 @@
 import { Route, Switch } from 'react-router-dom';
-import { Dashboard, Details, Home } from '../pages';
 
-
-const Container = () => (
+const Header = () => (
   <Switch>
     <Route exact path="/">
-      <Home />
+      <h2>Home</h2>
     </Route>
 
     <Route path="/locate">
-      <Dashboard />
+      <h2>My forecast</h2>
     </Route>
 
     <Route path="/search">
-      <Dashboard />
+      <h2>Search</h2>
     </Route>
 
     <Route path="/:id">
-      <Details />
+      <h2>Details</h2>
     </Route>
   </Switch>
 );
 
-export default Container;
+export default Header;
