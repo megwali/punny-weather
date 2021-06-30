@@ -1,25 +1,39 @@
-import { Route, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { Dashboard, Details, Home, Search } from '../pages';
+import { useSearchQuery, useUserLocation } from '../hooks';
 
 
-const Container = () => (
-  <Switch>
-    <Route exact path="/">
-      <Home />
-    </Route>
+const Container = () => {
+  const [query, setQuery] = useState('');
+  const { pathname } = useLocation();
+  const [skip, setSkip] = useState(pathname !== '/locate');
+  const locationForecast = useUserLocation(skip);
+  const searchForecast = useSearchQuery(query);
 
-    <Route path="/locate">
-      <Dashboard />
-    </Route>
+  useEffect(() => {
+    setSkip(pathname !== '/locate' || locationForecast?.summary?.length)
+  }, [locationForecast?.summary, pathname])
 
-    <Route path="/search">
-      <Search />
-    </Route>
+  return (
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
 
-    <Route path="/:id">
-      <Details />
-    </Route>
-  </Switch>
-);
+      <Route path="/locate">
+        <Dashboard data={locationForecast} />
+      </Route>
+
+      <Route path="/search">
+        <Search data={searchForecast} setQuery={setQuery} />
+      </Route>
+
+      <Route path="/:id">
+        <Details />
+      </Route>
+    </Switch>
+  );
+};
 
 export default Container;
