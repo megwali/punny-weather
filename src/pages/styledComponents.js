@@ -22,11 +22,15 @@ export const LinkedCard = styled(Link)`
   border: 1px solid navy;
   border-radius: 3px;
   color: inherit;
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0.75rem;
   padding: 1rem 2rem 2rem;
   text-decoration: none;
   width: 33%;
+
+  > span {
+    text-decoration: underline;
+  }
 
   @media (max-width: 768px) {
     margin: 0 0 1.5rem;
