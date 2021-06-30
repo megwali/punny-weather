@@ -9,7 +9,7 @@ const options = {
   timeout: 5000,
 };
 
-const useUserLocation = () => {
+const useUserLocation = (skip) => {
   const [position, setPosition] = useState([]);
   const [data, setData] = useState({ city: null, error: false, loading: true, list: [], summary: [] });
   const [latitude, longitude] = position;
@@ -38,8 +38,10 @@ const useUserLocation = () => {
       }
     };
 
-    getForecastData();
-  }, [latitude, longitude]);
+    if (!skip) {
+      getForecastData();
+    }
+  }, [latitude, longitude, skip]);
 
   return data;
 };
