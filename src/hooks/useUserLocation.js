@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { getDailySummary } from '../utils';
 
 const url = process.env.REACT_APP_API_URL;
 const APPID = process.env.REACT_APP_API_KEY;
@@ -10,7 +11,7 @@ const options = {
 
 const useUserLocation = () => {
   const [position, setPosition] = useState([]);
-  const [data, setData] = useState({ error: false, forecast: null, loading: true });
+  const [data, setData] = useState({ city: null, error: false, loading: true, list: [], summary: [] });
   const [latitude, longitude] = position;
 
   useEffect(() => {
@@ -29,8 +30,9 @@ const useUserLocation = () => {
       if (latitude && longitude) {
         fetch(`${url}?lat=${latitude}&lon=${longitude}&units=metric&APPID=${APPID}`)
         .then(response => response.json())
-        .then(forecast => {
-          setData({ error: false, forecast, loading: false });
+        .then(({ city, list }) => {
+          const summary = getDailySummary(list);
+          setData({ error: false, city, loading: false, list, summary });
         })
         .catch(handleError);
       }
