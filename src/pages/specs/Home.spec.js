@@ -1,7 +1,7 @@
 import { create } from 'react-test-renderer';
 import Home from '../Home';
 
-jest.mock('../StyledComponents', () => ({
+jest.mock('../../components/styledComponents', () => ({
   CenteredTextContainer: 'CenteredTextContainer',
   LinkedCard: 'LinkedCard',
   LinkedCardContainer: 'LinkedCardContainer',

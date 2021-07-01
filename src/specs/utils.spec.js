@@ -53,12 +53,10 @@ describe('getDailySummary', () => {
     const firstItem = result[0];
     expect(Array.isArray(result)).toBe(true);
     expect(typeof firstItem).toBe('object');
-    expect(firstItem).toHaveProperty('precipitation');
-    expect(firstItem.precipitation).toBe(20);
     expect(firstItem).toHaveProperty('temp_max');
-    expect(firstItem.temp_max).toBe(18.92);
+    expect(firstItem.temp_max).toBe('18.9');
     expect(firstItem).toHaveProperty('temp_min');
-    expect(firstItem.temp_min).toBe(14.5);
+    expect(firstItem.temp_min).toBe('14.5');
     expect(firstItem).toHaveProperty('weatherCondition');
     expect(firstItem.weatherCondition).toBe('Rain');
     expect(firstItem).toHaveProperty('weatherIcon');

@@ -1,4 +1,4 @@
-import { CenteredTextContainer, LinkedCard, LinkedCardContainer } from './styledComponents';
+import { CenteredTextContainer, LinkedCard, LinkedCardContainer } from '../components/styledComponents';
 
 const Home = () => (
   <CenteredTextContainer>
