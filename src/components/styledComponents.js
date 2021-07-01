@@ -36,6 +36,7 @@ export const ColWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  text-transform: capitalize;
 `;
 
 export const Error = styled(CenteredTextContainer)`

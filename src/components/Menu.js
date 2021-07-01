@@ -9,7 +9,7 @@ const { pathname } = useLocation();
       <NavLink activeStyle={{ color: 'orangered' }} exact to="/">Home</NavLink>
       <NavLink activeStyle={{ color: 'orangered' }} isActive={(match) => match} to="/search">Search</NavLink>
 
-      {pathname === '/locate' && (
+      {pathname.includes('/locate') && (
         <NavLink activeStyle={{ color: 'orangered' }} isActive={(match) => match} to="/locate">Locate me</NavLink>
       )}
     </MenuContainer>
