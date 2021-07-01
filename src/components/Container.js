@@ -26,7 +26,7 @@ const Container = () => {
       </Route>
 
       <Route path="/search">
-        <Search data={searchForecast} setQuery={setQuery} />
+        <Search data={searchForecast} query={query} setQuery={setQuery} />
       </Route>
 
       <Route path="/:id">

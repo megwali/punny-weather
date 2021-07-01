@@ -32,10 +32,11 @@ exports[`Container renders 1`] = `
           "city": null,
           "error": false,
           "list": Array [],
-          "loading": true,
+          "loading": false,
           "summary": Array [],
         }
       }
+      query=""
       setQuery={[Function]}
     />
   </Route>
