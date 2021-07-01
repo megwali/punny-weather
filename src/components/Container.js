@@ -11,7 +11,8 @@ const Container = () => {
   const locationForecast = useUserLocation(skip);
   const searchForecast = useSearchQuery(query);
   const id = pathname.split('/')[2];
-  const index = id - 1;
+  const index = id < 1 ? 0 : id - 1;
+  const locationIndex = id < locationForecast?.list?.length ? index : locationForecast?.list?.length - 1;
 
   useEffect(() => {
     setSkip(!pathname.includes('/locate') || locationForecast?.summary?.length)
@@ -32,7 +33,7 @@ const Container = () => {
       </Route>
 
       <Route path="/locate/:id">
-        <Details city={locationForecast?.city} data={locationForecast?.list[index]} />
+        <Details city={locationForecast?.city} data={locationForecast?.list[locationIndex]} />
       </Route>
 
       <Route path="/search/:id">
