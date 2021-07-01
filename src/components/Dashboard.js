@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { useLocation } from 'react-router-dom';
 import {
   CardList,
   CardText,
@@ -10,6 +11,8 @@ import {
 } from './styledComponents';
 
 const Dashboard = ({ data, loadingMessage }) => {
+  const { pathname } = useLocation();
+  const parentPath = pathname.split('/')[1];
   const { city, error, loading, summary } = data;
 
   return (
@@ -20,8 +23,8 @@ const Dashboard = ({ data, loadingMessage }) => {
 
       {(loading || !!summary?.length) && (
         <CardList>
-          {summary.map(({ date, temp_max, temp_min, weatherCondition, weatherIcon }) => (
-            <WeatherCard key={date}>
+          {summary.map(({ date, temp_max, temp_min, weatherCondition, weatherIcon }, index) => (
+            <WeatherCard key={date} to={`/${parentPath}/${index + 1}`}>
               <RowWrapper>
                 <div>
                   <CardText as="h3">{moment(date).format('ddd')}</CardText>
