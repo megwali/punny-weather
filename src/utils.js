@@ -35,7 +35,7 @@ export const getDailySummary = (list) => {
       const condition = weather[0].main;
       temp_max.push(main.temp_max);
       temp_min.push(main.temp_min);
-      weatherSummary[condition] = weatherSummary[condition] ? weatherSummary[condition]++ : 1;
+      weatherSummary[condition] = weatherSummary[condition] ? (weatherSummary[condition] + 1) : 1;
       icons[condition] = icons[condition] || weather[0].icon;
     });
 
