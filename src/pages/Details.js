@@ -55,7 +55,7 @@ const Details = ({ city, data }) => {
                   <CardText as="h6">Wind speed: {wind.speed}m/s</CardText>
                   <CardText as="h6">Gust: {wind.gust}m/s</CardText>
                   {rain && <CardText as="h6">Rain: {rain}mm</CardText>}
-                  {snow && <CardText as="h6">Rain: {snow}mm</CardText>}
+                  {snow && <CardText as="h6">Snow: {snow}mm</CardText>}
                 </CardText>
               </RowWrapper>
             </WeatherCard>
