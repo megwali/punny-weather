@@ -9,6 +9,7 @@ exports[`Container renders 1`] = `
     <Home />
   </Route>
   <Route
+    exact={true}
     path="/locate"
   >
     <Locate
@@ -24,6 +25,7 @@ exports[`Container renders 1`] = `
     />
   </Route>
   <Route
+    exact={true}
     path="/search"
   >
     <Search
@@ -41,9 +43,18 @@ exports[`Container renders 1`] = `
     />
   </Route>
   <Route
-    path="/:id"
+    path="/locate/:id"
   >
-    <Details />
+    <Details
+      city={null}
+    />
+  </Route>
+  <Route
+    path="/search/:id"
+  >
+    <Redirect
+      to="/search"
+    />
   </Route>
 </Switch>
 `;

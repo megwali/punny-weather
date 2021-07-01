@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getDailySummary } from '../utils';
+import { getDailySummary, groupByDate, sortByDate } from '../utils';
 
 const url = process.env.REACT_APP_API_URL;
 const APPID = process.env.REACT_APP_API_KEY;
@@ -35,7 +35,7 @@ const useUserLocation = (skip) => {
             handleError(message);
           } else {
             const summary = getDailySummary(list);
-            setData({ error: false, city, loading: false, list, summary });
+            setData({ error: false, city, loading: false, list: sortByDate(groupByDate(list)), summary });
           }
         })
         .catch(handleError);

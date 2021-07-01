@@ -15,7 +15,7 @@ const Search = ({ data, query = '', setQuery }) => {
           type="search"
           value={city}
         />
-        <Button onClick={() => setQuery(city)}>Search</Button>
+        <Button disabled={!city} onClick={() => setQuery(city)}>Search</Button>
       </SearchContainer>
 
       <Dashboard data={data} loadingMessage={'Doing science... 🛫 🧪 🔬 🛬'} />
