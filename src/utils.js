@@ -56,3 +56,17 @@ export const getDailySummary = (list) => {
     return result;
   }, []);
 };
+
+export const sanitizeData = ({ dt, main, rain, snow, weather, wind }) => {
+  const weatherData = weather[0];
+  return {
+    main,
+    rain: rain && rain['3h'],
+    snow: snow && snow['3h'],
+    time: moment(dt * 1000).format('h:mm a'),
+    weatherCondition: weatherData.main,
+    weatherDescription: weatherData.description,
+    weatherIcon: weatherData.icon,
+    wind,
+  };
+};
