@@ -1,16 +1,26 @@
-import useSearchQuery from '../hooks/useSearchQuery';
-import { CardList, CenteredTextContainer, Error } from './styledComponents';
+import { useState } from 'react';
+import Dashboard from '../components/Dashboard';
+import { Button, SearchContainer, SearchInput } from '../components/styledComponents';
 
 
-const Search = () => {
-  const { error, forecast, loading } = useSearchQuery();
+const Search = ({ data, query = '', setQuery }) => {
+  const [city, setCity] = useState(query);
 
   return (
-    <CardList>
-      {error && <Error>An error occurred</Error>}
-      {loading && <CenteredTextContainer>Doing science... 🛫 🧪 🔬 🛬</CenteredTextContainer>}
-    </CardList>
-  )
+    <>
+      <SearchContainer>
+        <SearchInput
+          onChange={({ target }) => setCity(target.value)}
+          placeholder="Search city"
+          type="search"
+          value={city}
+        />
+        <Button onClick={() => setQuery(city)}>Search</Button>
+      </SearchContainer>
+
+      <Dashboard data={data} loadingMessage={'Doing science... 🛫 🧪 🔬 🛬'} />
+    </>
+  );
 };
 
 export default Search;

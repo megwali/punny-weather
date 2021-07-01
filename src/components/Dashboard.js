@@ -15,7 +15,7 @@ const Dashboard = ({ data, loadingMessage }) => {
   return (
     <CenteredTextContainer>
       {city && <h3>Your weather forecast deck for {city.name}, {city.country}</h3>}
-      {error && <Error>An error occurred</Error>}
+      {error && <Error>{error === true ? 'An error occurred' : error}</Error>}
       {loading && loadingMessage}
 
       {(loading || !!summary?.length) && (
