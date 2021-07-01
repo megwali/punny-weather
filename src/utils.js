@@ -28,13 +28,11 @@ export const getDailySummary = (list) => {
     const summary = {};
     const temp_max = [];
     const temp_min = [];
-    let totalPrecipitation = 0;
     let weatherCondition = '';
     const weatherSummary = {};
 
-    items.forEach(({ main, pop, weather }) => {
+    items.forEach(({ main, weather }) => {
       const condition = weather[0].main;
-      totalPrecipitation += pop || 0
       temp_max.push(main.temp_max);
       temp_min.push(main.temp_min);
       weatherSummary[condition] = weatherSummary[condition] ? weatherSummary[condition]++ : 1;
@@ -48,9 +46,9 @@ export const getDailySummary = (list) => {
       }
     }
 
-    summary.precipitation = parseInt(100 * (totalPrecipitation / items.length));
-    summary.temp_max = Math.max(...temp_max);
-    summary.temp_min = Math.min(...temp_min);
+    summary.date = moment(items[0].dt * MILLISECONDS).format('YYYY-MM-DD');
+    summary.temp_max = Math.max(...temp_max).toFixed(1);
+    summary.temp_min = Math.min(...temp_min).toFixed(1);
     summary.weatherCondition = weatherCondition;
     summary.weatherIcon = icons[weatherCondition];
 
