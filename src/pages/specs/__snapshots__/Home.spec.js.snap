@@ -13,37 +13,33 @@ exports[`Home renders 1`] = `
       to="/locate"
     >
       <h3>
-        Magic
+        Misty Magic
       </h3>
       <p>
         View weather information about your current location:
       </p>
       <p>
-        Click here and we'll handle the magic of presenting the weather forecast for your location.
+        Pick this card and we'll handle the magic of presenting the weather forecast for your location.
       </p>
-      <Link
-        to="/locate"
-      >
+      <span>
         Get my location
-      </Link>
+      </span>
     </LinkedCard>
     <LinkedCard
       to="/search"
     >
       <h3>
-        Science
+        Sunny Science
       </h3>
       <p>
         Search weather forecast information for any city:
       </p>
       <p>
-        Click here to be transported to the search portal to find forecast locations and information yourself.
+        Click this card to be transported to the search portal to find forecast locations and information yourself.
       </p>
-      <Link
-        to="/search"
-      >
+      <span>
         Take me to the search portal
-      </Link>
+      </span>
     </LinkedCard>
   </LinkedCardContainer>
 </CenteredTextContainer>
