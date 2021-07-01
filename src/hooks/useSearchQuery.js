@@ -6,22 +6,26 @@ const APPID = process.env.REACT_APP_API_KEY;
 
 
 const useSearchQuery = (query) => {
-  const [data, setData] = useState({ city: null, error: false, loading: true, list: [], summary: [] });
+  const [data, setData] = useState({ city: null, error: false, loading: false, list: [], summary: [] });
 
   useEffect(() => {
-    const handleError = () => {
-      setData(data => ({ ...data, error: true, loading: false }));
+    const handleError = (message) => {
+      setData(data => ({ ...data, error: message || true, loading: false }));
     };
 
     const getForecastData = () => {
       if (query) {
-        setData(data => ({ ...data, error: false, loading: false }));
+        setData(data => ({ ...data, error: false, loading: true }));
 
         fetch(`${url}?q=${query}&units=metric&APPID=${APPID}`)
         .then(response => response.json())
-        .then(({ city, list }) => {
-          const summary = getDailySummary(list);
-          setData({ error: false, city, loading: false, list, summary });
+        .then(({ city, cod, list, message }) => {
+          if (cod !== '200' && !list) {
+            handleError(message);
+          } else {
+            const summary = getDailySummary(list);
+            setData({ error: false, city, loading: false, list, summary });
+          }
         })
         .catch(handleError);
       }
