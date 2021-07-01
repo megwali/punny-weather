@@ -6,11 +6,11 @@ const Menu = () => {
 const { pathname } = useLocation();
   return (
     <MenuContainer>
-      <NavLink activeStyle={{ color: 'navy' }} exact to="/">Home</NavLink>
-      <NavLink activeStyle={{ color: 'navy' }} isActive={(match) => match} to="/search">Search</NavLink>
+      <NavLink activeStyle={{ color: 'orangered' }} exact to="/">Home</NavLink>
+      <NavLink activeStyle={{ color: 'orangered' }} isActive={(match) => match} to="/search">Search</NavLink>
 
       {pathname === '/locate' && (
-        <NavLink activeStyle={{ color: 'navy' }} isActive={(match) => match} to="/locate">My forecast</NavLink>
+        <NavLink activeStyle={{ color: 'orangered' }} isActive={(match) => match} to="/locate">Locate me</NavLink>
       )}
     </MenuContainer>
   );
