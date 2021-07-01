@@ -43,6 +43,10 @@ const Container = () => {
           <Redirect to="/search" />
         )}
       </Route>
+
+      <Route path="*">
+        <Home />
+      </Route>
     </Switch>
   );
 };

@@ -56,5 +56,10 @@ exports[`Container renders 1`] = `
       to="/search"
     />
   </Route>
+  <Route
+    path="*"
+  >
+    <Home />
+  </Route>
 </Switch>
 `;

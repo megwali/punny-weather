@@ -14,8 +14,8 @@ const Header = () => (
       <h2>Search</h2>
     </Route>
 
-    <Route path="/:id">
-      <h2>Details</h2>
+    <Route path="*">
+      <h2>Home</h2>
     </Route>
   </Switch>
 );

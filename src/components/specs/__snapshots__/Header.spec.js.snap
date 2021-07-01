@@ -25,10 +25,10 @@ exports[`Header renders 1`] = `
     </h2>
   </Route>
   <Route
-    path="/:id"
+    path="*"
   >
     <h2>
-      Details
+      Home
     </h2>
   </Route>
 </Switch>
