@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { Dashboard, Details, Home, Search } from '../pages';
+import { Locate, Details, Home, Search } from '../pages';
 import { useSearchQuery, useUserLocation } from '../hooks';
 
 
@@ -22,7 +22,7 @@ const Container = () => {
       </Route>
 
       <Route path="/locate">
-        <Dashboard data={locationForecast} />
+        <Locate data={locationForecast} />
       </Route>
 
       <Route path="/search">
