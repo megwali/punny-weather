@@ -45,12 +45,16 @@ exports[`Container renders 1`] = `
   <Route
     path="/locate/:id"
   >
-    <Details />
+    <Details
+      city={null}
+    />
   </Route>
   <Route
     path="/search/:id"
   >
-    <Details />
+    <Redirect
+      to="/search"
+    />
   </Route>
 </Switch>
 `;

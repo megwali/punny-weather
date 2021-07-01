@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { Locate, Details, Home, Search } from '../pages';
 import { useSearchQuery, useUserLocation } from '../hooks';
 
@@ -32,11 +32,15 @@ const Container = () => {
       </Route>
 
       <Route path="/locate/:id">
-        <Details data={locationForecast?.list[index]} />
+        <Details city={locationForecast?.city} data={locationForecast?.list[index]} />
       </Route>
 
       <Route path="/search/:id">
-        <Details data={searchForecast?.list[index]} />
+        {query ? (
+          <Details city={searchForecast?.city} data={searchForecast?.list[index]} />
+        ) : (
+          <Redirect to="/search" />
+        )}
       </Route>
     </Switch>
   );
