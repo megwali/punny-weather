@@ -31,6 +31,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Environment variables
 Create a `.env` file and add the following:
+```
 REACT_APP_API_KEY=YOUR_API_KEY
 REACT_APP_API_URL=https://api.openweathermap.org/data/2.5/forecast
 REACT_APP_ICON_URL=https://openweathermap.org/img/wn/
+```
