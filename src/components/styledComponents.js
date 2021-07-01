@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
+export const Button = styled.button`
+  margin: 0 0.5rem;
+  padding: 0.5rem 0.75rem;
+`;
+
 export const CardList = styled.div`
   border: 1px solid lightgrey;
   border-radius: 4px;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin: 1rem auto;
   max-width: 80%;
   min-height: 60px;
@@ -26,8 +32,15 @@ export const CenteredTextContainer = styled.div`
   text-align: center;
 `;
 
+export const ColWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Error = styled(CenteredTextContainer)`
   color: red;
+  text-transform: capitalize;
 `;
 
 export const LinkedCard = styled(Link)`
@@ -73,14 +86,18 @@ export const MenuContainer = styled.nav`
   }
 `;
 
-
-export const RowWrapper = styled.div`
-  align-items: center;
-  display: flex;
+export const RowWrapper = styled(ColWrapper)`
+  flex-direction: row;
 `;
 
-export const ColWrapper = styled(RowWrapper)`
-  flex-direction: column;
+export const SearchContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const SearchInput = styled.input`
+  padding: 0.5rem;
+  width: 50%;
 `;
 
 export const WeatherCard = styled(LinkedCard)`
