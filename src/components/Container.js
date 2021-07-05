@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { Locate, Details, Home, Search } from '../pages';
-import { useSearchQuery, useUserLocation } from '../hooks';
+import { useUserLocation, useWeatherQuery } from '../hooks';
 
 
 const Container = () => {
@@ -9,7 +9,7 @@ const Container = () => {
   const { pathname } = useLocation();
   const [skip, setSkip] = useState(pathname !== '/locate');
   const locationForecast = useUserLocation(skip);
-  const searchForecast = useSearchQuery(query);
+  const { data: searchForecast } = useWeatherQuery({ params: `q=${query}`, skip: !query });
   const id = pathname.split('/')[2];
   const index = id < 1 ? 0 : id - 1;
   const locationIndex = id < locationForecast?.list?.length ? index : locationForecast?.list?.length - 1;
