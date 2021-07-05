@@ -10,5 +10,5 @@ describe('App', () => {
   it('renders', () => {
     const component = create(<App />);
     expect(component.toJSON()).toMatchSnapshot();
-  })
+  });
 });

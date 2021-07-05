@@ -38,11 +38,9 @@ describe('sortByDate', () => {
 
   it('returns an array of arrays sorted by date', () => {
     const result = sortByDate(groupByDate(list));
-    expect(moment(result[0][0].dt).isBefore(moment(result[1][0].dt))).toBe(true);
-    expect(moment(result[1][0].dt).isBefore(moment(result[2][0].dt))).toBe(true);
-    expect(moment(result[2][0].dt).isBefore(moment(result[3][0].dt))).toBe(true);
-    expect(moment(result[3][0].dt).isBefore(moment(result[4][0].dt))).toBe(true);
-    expect(moment(result[4][0].dt).isBefore(moment(result[5][0].dt))).toBe(true);
+    for (let i = 0; i < result.length - 1; i++) {
+      expect(moment(result[i][0].dt).isBefore(moment(result[i + 1][0].dt))).toBe(true);
+    }
   });
 });
 
@@ -58,8 +56,8 @@ describe('getDailySummary', () => {
     expect(firstItem).toHaveProperty('temp_min');
     expect(firstItem.temp_min).toBe('14.5');
     expect(firstItem).toHaveProperty('weatherCondition');
-    expect(firstItem.weatherCondition).toBe('Rain');
+    expect(firstItem.weatherCondition).toBe('Clouds');
     expect(firstItem).toHaveProperty('weatherIcon');
-    expect(firstItem.weatherIcon).toBe('10d');
+    expect(firstItem.weatherIcon).toBe('04d');
   });
 });

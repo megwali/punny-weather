@@ -13,4 +13,4 @@ describe('Home', () => {
     const component = create(<Home />);
     expect(component.toJSON()).toMatchSnapshot();
   });
-})
+});

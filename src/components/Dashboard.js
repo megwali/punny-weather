@@ -52,7 +52,7 @@ const Dashboard = ({ data, loadingMessage }) => {
         </CardList>
       )}
     </CenteredTextContainer>
-  )
+  );
 };
 
 export default Dashboard;

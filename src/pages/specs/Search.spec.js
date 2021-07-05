@@ -11,8 +11,7 @@ jest.mock('../../components/styledComponents', () => ({
 
 describe('Search', () => {
   it ('renders', () => {
-    const data = {};
-    const component = create(<Search data={data} />);
+    const component = create(<Search data={{}} />);
     expect(component.toJSON()).toMatchSnapshot();
   });
 });

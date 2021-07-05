@@ -15,8 +15,8 @@ const Container = () => {
   const locationIndex = id < locationForecast?.list?.length ? index : locationForecast?.list?.length - 1;
 
   useEffect(() => {
-    setSkip(!pathname.includes('/locate') || locationForecast?.summary?.length)
-  }, [locationForecast?.summary, pathname])
+    setSkip(!pathname.includes('/locate') || locationForecast?.summary?.length);
+  }, [locationForecast?.summary, pathname]);
 
   return (
     <Switch>
