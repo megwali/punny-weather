@@ -8,6 +8,7 @@ import {
   WeatherCard
 } from '../components/styledComponents';
 import { sanitizeData } from '../utils';
+import WeatherIcon from '../components/WeatherIcon';
 
 
 const Details = ({ city, data }) => {
@@ -39,12 +40,7 @@ const Details = ({ city, data }) => {
               </RowWrapper>
 
               <ColWrapper>
-                <img
-                  alt={`${weatherCondition}-weather-icon`}
-                  height="120"
-                  src={`${process.env.REACT_APP_ICON_URL}${weatherIcon}@2x.png`}
-                  width="120"
-                />
+                <WeatherIcon icon={weatherIcon} weatherCondition={weatherCondition} />
                 <CardText>{weatherDescription}</CardText>
               </ColWrapper>
 

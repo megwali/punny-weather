@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { useLocation } from 'react-router-dom';
+import WeatherIcon from './WeatherIcon';
 import {
   CardList,
   CardText,
@@ -38,12 +39,7 @@ const Dashboard = ({ data, loadingMessage }) => {
               </RowWrapper>
 
               <ColWrapper>
-                <img
-                  alt={`${weatherCondition}-weather-icon`}
-                  height="120"
-                  src={`${process.env.REACT_APP_ICON_URL}${weatherIcon}@2x.png`}
-                  width="120"
-                />
+                <WeatherIcon icon={weatherIcon} weatherCondition={weatherCondition} />
                 Mostly {weatherCondition}
                 <CardText as="sub">Click for details</CardText>
               </ColWrapper>
@@ -52,7 +48,7 @@ const Dashboard = ({ data, loadingMessage }) => {
         </CardList>
       )}
     </CenteredTextContainer>
-  )
+  );
 };
 
 export default Dashboard;

@@ -6,8 +6,7 @@ jest.mock('../../components/Dashboard', () => 'Dashboard');
 
 describe('Locate', () => {
   it ('renders', () => {
-    const data = {};
-    const component = create(<Locate data={data} />);
+    const component = create(<Locate data={{}} />);
     expect(component.toJSON()).toMatchSnapshot();
   });
 });
