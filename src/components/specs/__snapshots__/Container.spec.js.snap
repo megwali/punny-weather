@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container renders 1`] = `
+<Switch>
+  <Route
+    exact={true}
+    path="/"
+  >
+    <Home />
+  </Route>
+  <Route
+    exact={true}
+    path="/locate"
+  >
+    <Locate
+      data={
+        Object {
+          "city": null,
+          "error": false,
+          "list": Array [],
+          "loading": true,
+          "summary": Array [],
+        }
+      }
+    />
+  </Route>
+  <Route
+    exact={true}
+    path="/search"
+  >
+    <Search
+      data={
+        Object {
+          "city": null,
+          "error": false,
+          "list": Array [],
+          "loading": false,
+          "summary": Array [],
+        }
+      }
+      query=""
+      setQuery={[Function]}
+    />
+  </Route>
+  <Route
+    path="/locate/:id"
+  >
+    <Details
+      city={null}
+    />
+  </Route>
+  <Route
+    path="/search/:id"
+  >
+    <Redirect
+      to="/search"
+    />
+  </Route>
+  <Route
+    path="*"
+  >
+    <Home />
+  </Route>
+</Switch>
+`;

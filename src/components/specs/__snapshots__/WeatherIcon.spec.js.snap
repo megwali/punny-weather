@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherIcon renders 1`] = `
+<img
+  alt="test-weather-icon"
+  height="120"
+  src="https://openweathermap.org/img/wn/test@2x.png"
+  width="120"
+/>
+`;

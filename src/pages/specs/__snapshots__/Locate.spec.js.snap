@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Locate renders 1`] = `
+<Dashboard
+  data={Object {}}
+  loadingMessage="Doing magic... 🎩🕴"
+/>
+`;
